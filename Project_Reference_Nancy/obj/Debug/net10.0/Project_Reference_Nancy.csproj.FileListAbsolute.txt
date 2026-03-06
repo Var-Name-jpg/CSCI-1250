@@ -1,0 +1,15 @@
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/bin/Debug/net10.0/Project_Reference_Nancy
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/bin/Debug/net10.0/Project_Reference_Nancy.deps.json
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/bin/Debug/net10.0/Project_Reference_Nancy.runtimeconfig.json
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/bin/Debug/net10.0/Project_Reference_Nancy.dll
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/bin/Debug/net10.0/Project_Reference_Nancy.pdb
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.GeneratedMSBuildEditorConfig.editorconfig
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.AssemblyInfoInputs.cache
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.AssemblyInfo.cs
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.csproj.CoreCompileInputs.cache
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.sourcelink.json
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.dll
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/refint/Project_Reference_Nancy.dll
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.pdb
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/Project_Reference_Nancy.genruntimeconfig.cache
+/home/eclipse/CSCI-1250/Project_Reference_Nancy/obj/Debug/net10.0/ref/Project_Reference_Nancy.dll
