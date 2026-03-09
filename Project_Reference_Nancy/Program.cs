@@ -1,183 +1,62 @@
-﻿using System;
+﻿// 3 data types
+// array
+// foreach
+// 2 methods
 
-class Book
-{
-    public string Title;
-    public double Rating;
-    public bool IsRead;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+public class Student {
+	public string Name { get; set; }
+	public int Grade { get; set; }
+	public double GradeAverage { get; set; }
+
+	public Student(string name, int grade, double gradeAverage) {
+		Name = name;
+		Grade = grade;
+		GradeAverage = gradeAverage;
+	}
 }
 
-class Program
-{
-    // Fixed-size array for demo purposes
-    static Book[] books = new Book[100];
-    static int bookCount = 0;
+public class Program {
+	public static void Main(string[] args) {
+		string name;
+		int grade;
+		double gradeAverage;
 
-    static void Main()
-    {
-        // Seed a few books
-        AddBook("Dune", 4.5, true);
-        AddBook("The Hobbit", 5.0, true);
-        AddBook("War and Peace", 0.0, false);
-        AddBook("Neuromancer", 0.0, false);
+		int studentCount = 0;
 
-        bool running = true;
-        while (running)
-        {
-            Console.WriteLine("\nBook TBR List");
-            Console.WriteLine("1. Add book");
-            Console.WriteLine("2. Print all books");
-            Console.WriteLine("3. Print unread books");
-            Console.WriteLine("4. Print highly rated (>=4.0)");
-            Console.WriteLine("5. Show average rating");
-            Console.WriteLine("6. Quit");
-            Console.Write("Choose an option: ");
+		List<Student> students = new List<Student>();
 
-            string choice = Console.ReadLine();
-            Console.WriteLine();
+		Console.WriteLine("Would you like to add a student? (y/n)");
+		if (Console.ReadLine().ToLower() == "y") {
+			Console.Write("Name: ");
+			name = Console.ReadLine();
 
-            switch (choice)
-            {
-                case "1":
-                    AddBookFromInput();
-                    break;
-                case "2":
-                    PrintTBR();
-                    break;
-                case "3":
-                    PrintUnread();
-                    break;
-                case "4":
-                    PrintHighlyRated(4.0);
-                    break;
-                case "5":
-                    PrintAverageRating();
-                    break;
-                case "6":
-                    running = false;
-                    break;
-                default:
-                    Console.WriteLine("Invalid option.");
-                    break;
-            }
-        }
-    }
+			Console.Write("Current Grade Level: ");
+			grade = int.Parse( Console.ReadLine() );
 
-    // Method 1: AddBook (core add logic)
-    static void AddBook(string title, double rating, bool isRead)
-    {
-        if (bookCount >= books.Length)
-        {
-            Console.WriteLine("TBR list is full.");
-            return;
-        }
+			Console.Write("Grade Average: ");
+			gradeAverage = double.Parse(Console.ReadLine());
 
-        books[bookCount] = new Book
-        {
-            Title = title,
-            Rating = rating,
-            IsRead = isRead
-        };
-        bookCount++;
-    }
+			AddStudentToRecord(studentCount, name, grade, gradeAverage, students);
+			studentCount++;
+		}
 
-    // Helper to read input and call AddBook
-    static void AddBookFromInput()
-    {
-        Console.Write("Enter book title: ");
-        string title = Console.ReadLine();
+		PrintStudents(students);
+	}
 
-        Console.Write("Has it been read? (y/n): ");
-        bool isRead = Console.ReadLine().Trim().ToLower() == "y";
+	// method 1
+	public static void AddStudentToRecord(int studentCount, string name, int grade, double gradeAverage, List<Student> students) {
+		Student studentToAdd = new Student(name, grade, gradeAverage);
+		students.Add(studentToAdd);
+	}
 
-        double rating = 0.0;
-        if (isRead)
-        {
-            Console.Write("Enter rating (0.0 - 5.0): ");
-            double.TryParse(Console.ReadLine(), out rating);
-        }
-
-        AddBook(title, rating, isRead);
-        Console.WriteLine("Book added.");
-    }
-
-    // Method 2: PrintTBR (uses foreach over array slice)
-    static void PrintTBR()
-    {
-        Console.WriteLine("Full TBR List:");
-        foreach (Book b in GetCurrentBooks())
-        {
-            PrintBook(b);
-        }
-    }
-
-    // Extra: filter unread
-    static void PrintUnread()
-    {
-        Console.WriteLine("Unread Books:");
-        foreach (Book b in GetCurrentBooks())
-        {
-            if (!b.IsRead)
-            {
-                PrintBook(b);
-            }
-        }
-    }
-
-    // Extra: filter highly rated
-    static void PrintHighlyRated(double minRating)
-    {
-        Console.WriteLine($"Books rated >= {minRating}:");
-        foreach (Book b in GetCurrentBooks())
-        {
-            if (b.IsRead && b.Rating >= minRating)
-            {
-                PrintBook(b);
-            }
-        }
-    }
-
-    // Extra: average rating using foreach
-    static void PrintAverageRating()
-    {
-        double sum = 0.0;
-        int count = 0;
-
-        foreach (Book b in GetCurrentBooks())
-        {
-            if (b.IsRead)
-            {
-                sum += b.Rating;
-                count++;
-            }
-        }
-
-        if (count == 0)
-        {
-            Console.WriteLine("No read books to average.");
-        }
-        else
-        {
-            double avg = sum / count;
-            Console.WriteLine($"Average rating of read books: {avg:F2}");
-        }
-    }
-
-    // Helper: get only the filled part of the array
-    static Book[] GetCurrentBooks()
-    {
-        Book[] current = new Book[bookCount];
-        for (int i = 0; i < bookCount; i++)
-        {
-            current[i] = books[i];
-        }
-        return current;
-    }
-
-    // Helper: pretty-print a single book
-    static void PrintBook(Book b)
-    {
-        string status = b.IsRead ? $"Read, rating {b.Rating:F1}" : "Unread";
-        Console.WriteLine($"- {b.Title} [{status}]");
-    }
+	// method 2
+	public static void PrintStudents(List<Student> list) {
+		foreach (Student student in list) {
+			Console.WriteLine($"Name: {student.Name}, Grade Level: {student.Grade}, Grade Average: {student.GradeAverage}");
+		}
+	}
 }
